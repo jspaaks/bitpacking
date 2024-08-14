@@ -1,7 +1,7 @@
 #include "bitpacking/pack.h"
 #include <stddef.h>
-#include <stdio.h>
 #include <stdint.h>
+#include <stdio.h>
 
 static const uint8_t b00110000 = 48;
 static const uint8_t b00111100 = 60;

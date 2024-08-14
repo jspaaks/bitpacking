@@ -1,19 +1,17 @@
-#include <stdio.h>
-#include <math.h>
-#include <stdint.h>
-#include <stdlib.h>
 #include "bitpacking/pack.h"
 #include "bitpacking/unpack.h"
+#include <math.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
 
-
-
-static uint8_t unpacked[4] = {32, 24, 6, 1};
+static uint8_t unpacked[4] = { 32, 24, 6, 1 };
 static uint8_t packed[3] = {};
 
 constexpr size_t nunpacked = sizeof(unpacked) / sizeof(unpacked[0]);
 constexpr size_t npacked = sizeof(packed) / sizeof(packed[0]);
 
-static void print(FILE * fd) {
+static void print (FILE * fd) {
     for (size_t i = 0; i < nunpacked; ++i) {
         fprintf(fd, "unpacked[%zu] = %d\n", i, unpacked[i]);
     }
@@ -23,13 +21,11 @@ static void print(FILE * fd) {
     fprintf(fd, "\n");
 }
 
-
 int main (void) {
 
     print(stdout);
     bitpacking__pack(&unpacked, &packed);
     print(stdout);
-
 
     fprintf(stdout, "resetting unpacked\n");
     for (size_t i = 0; i < nunpacked; i++) {
